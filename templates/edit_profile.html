@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="text-white">
+	<h1 style="font-family: Georgia, serif;">Edit Profile</h1>
+  <div class="font-italic">
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{render_field(form.name, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.street, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.city, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.phone, class_="form-control")}}
+    </div>
+    <p><input type="submit" class="btn btn-primary" value="Update"></p>
+  </form>
+</div>
+</div>
+{% endblock %}

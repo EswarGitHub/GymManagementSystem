@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<div class="container">
+			{% for each in result %}
+		 <div class="form-group">
+			<a href = "{{url_for('profile', username = each['username'])}}"><button type ="button" class="btn btn-outline-warning" >{{each['username']}}</button></a>
+		</div>
+		 {% endfor %}			 
+	</div
+{% endblock %}

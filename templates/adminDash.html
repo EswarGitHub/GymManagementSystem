@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<div class="container jumbotron" style="background-color: #bcf2cf">
+		 <h1><small>Welcome</small><span class="font-italic font-weight-bold" style="color: #0d5125"> {{session.username}}</span></h1>
+		<div class="form-group">
+			<a href = "{{url_for('addTrainor')}}"><button type ="button" class="btn btn-outline-info btn-lg" >Add Trainer</button></a>
+		</div>
+		<div class="form-group">
+			<a href = "{{url_for('deleteTrainor')}}"><button type ="button" class="btn btn-outline-danger btn-lg" >Delete Trainer</button></a>
+		</div>
+		<div class="form-group">
+		<a href = "{{url_for('addRecep')}}"><button type ="button" class="btn btn-outline-info btn-lg" >Add Receptionist</button></a>
+		</div>
+		<div class="form-group">
+			<a href = "{{url_for('deleteRecep')}}"><button type ="button" class="btn btn-outline-danger btn-lg" >Delete Receptionist</button></a>
+		</div>
+		<div class="form-group">
+			<a href = "{{url_for('addEquip')}}"><button type ="button" class="btn btn-outline-info btn-lg" >Add Equipment</button></a>
+		</div>
+		<div class="form-group">
+			<a href = "{{url_for('removeEquip')}}"><button type ="button" class="btn btn-outline-danger btn-lg" >Remove Equipment</button></a>
+		</div>
+		<div class="form-group">
+			<a href = "{{url_for('addMember')}}"><button type ="button" class="btn btn-outline-info btn-lg" >Add Member</button></a>
+		</div>
+		<div class="form-group">
+			<a href = "{{url_for('deleteMember')}}"><button type ="button" class="btn btn-outline-danger btn-lg" >Delete Member</button></a>
+		</div>
+		<div class="form-group">
+			<a href = "{{url_for('viewDetails')}}"><button type ="button" class="btn btn-outline-secondary btn-lg" >View details</button></a>
+		</div>
+	</div>
+{% endblock %}

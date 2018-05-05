@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Gym</title>
+	<link rel="stylesheet" href="{{url_for('static', filename = 'assets/bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename = 'assets/bootstrap/css/bootstrap-theme.min.css')}}">
+</head>
+<body background="/static/image.jpg" style="background-repeat: no-repeat; background-size: cover;background-position: center; background-attachment: fixed;">
+	{% include 'includes/_navbar.html' %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		{% include 'includes/_messages.html' %}
+		{% block body %}{% endblock %}
+	</div>
+	<script src = "{{url_for('static', filename = 'assets/bootstrap/js/jquery.min.js')}}"></script>
+	<script src = "{{url_for('static', filename = 'assets/bootstrap/js/bootstrap.min.js')}}"></script>
+</body>
+</html>

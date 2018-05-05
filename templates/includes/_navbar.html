@@ -1,0 +1,31 @@
+<nav class="navbar navbar-dark navbar-expand-sm bg-dark fixed-top">
+      
+        <ul class="navbar-nav">
+          <li class="nav-item ">
+            <a class="nav-link " href="/">Home </a>
+          </li>
+          {% if not session.logged_in %}
+          <li class="nav-item "><a class="nav-link " href="/login">Login</a></li>
+          {% endif %}
+
+          {% if session.logged_in %}
+          {% if session.prof == 1 %}
+          <li class="nav-item "><a class="nav-link " href="/adminDash">Dashboard</a></li>
+          {% else %}
+            {% if session.prof == 2 %}
+              <li class="nav-item "><a class="nav-link " href="/recepDash">Dashboard</a></li>
+            {% else %}
+              {% if session.prof == 3 %}
+                <li class="nav-item "><a class="nav-link " href="/trainorDash">Dashboard</a></li>
+              {% else %}
+                <li class="nav-item "><a class="nav-link " href="{{url_for('memberDash', username = session.username)}}">Dashboard</a></li>
+              {% endif %}
+            {% endif %}
+          {% endif %}
+           <li class="nav-item "><a class="nav-link " href="{{url_for('profile',username = session.username)}}">Profile</a></li>
+           <li class="nav-item "><a class="nav-link " href="{{url_for('edit_profile',username = session.username)}}">Edit Profile</a></li>
+            <li class="nav-item "><a class="nav-link " href = "{{url_for('update_password', username = session.username)}}">Update password</a></li>
+          <li class="nav-item "><a class="nav-link " href="/logout">Logout</a></li>
+          {% endif %}
+        </ul>
+    </nav>
