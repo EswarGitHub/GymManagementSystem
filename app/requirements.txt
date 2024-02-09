@@ -1,0 +1,7 @@
+flask==2.0.1
+Werkzeug==2.3.7
+passlib
+flask-script==2.0.5
+WTForms==2.3.3
+datetime
+pymysql

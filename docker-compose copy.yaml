@@ -1,0 +1,35 @@
+---
+services:
+  db:
+    image: mysql:5.7.43
+    environment:
+      - MYSQL_ROOT_PASSWORD=<ENTER_DB_PASSWORD_HERE>
+      - MYSQL_DATABASE=Gym
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root --password='$$MYSQL_ROOT_PASSWORD'"]
+      start_period: 20s
+      interval: 5s
+      retries: 5
+    expose:
+      - '3306'
+    volumes:
+      - "./app/init.sql:/docker-entrypoint-initdb.d/init.sql"
+      - db-data:/var/lib/mysql
+
+  app:
+    build: ./app
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      MYSQL_HOST: db
+      MYSQL_USER: <ENTER_DB_USERNAME_HERE>
+      MYSQL_PASSWORD: <ENTER_DB_PASSWORD_HERE>
+      MYSQL_DB: Gym
+    ports:
+      - 80:5000
+
+volumes:
+  db-data:
